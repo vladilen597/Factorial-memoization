@@ -10,7 +10,7 @@ const memoizationFact = (f) => {
         } else {
             console.log("No matches found in memory. Calculating...");
             memory[arguments[0]] = result;
-            return memory[arguments[0]];
+            return result;
         }
     }
 }
