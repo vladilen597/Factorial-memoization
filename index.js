@@ -1,6 +1,3 @@
-let fn = 1;
-let i = 1;
-
 function fact(n) {
     if (n != 1) {
         return n * fact(n - 1);
@@ -13,13 +10,11 @@ const memoizationFact = () => {
     return (n) => {
         if (n in memory) {
             console.log("Found in memory");
-            console.log(memory[n]);
             return memory[n];
         } else {
             console.log("No matches found in memory. Calculating...");
             let result = fact(n);
             memory[n] = result;
-            console.log(result);
             return memory[n];
         }
     }
@@ -27,5 +22,5 @@ const memoizationFact = () => {
 
 const newMemoFact = memoizationFact();
 
-newMemoFact(20);
-newMemoFact(20);
+console.log(newMemoFact(20));
+console.log(newMemoFact(20));
