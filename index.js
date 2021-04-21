@@ -19,8 +19,7 @@ let factorial = function fact(n) {
     return (n != 1) ? n * fact(n - 1) : 1;
 }
 
-
 factorial = memoizationFact(factorial);
 
-alert(factorial(5))
-alert(factorial(5))
+console.log(factorial(5));
+console.log(factorial(5));
