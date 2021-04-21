@@ -22,5 +22,4 @@ const memoizationFact = () => {
 
 const newMemoFact = memoizationFact();
 
-console.log(newMemoFact(20));
-console.log(newMemoFact(20));
+alert(newMemoFact(+prompt("Введите число факториала")));
