@@ -1,25 +1,26 @@
-function fact(n) {
-    if (n != 1) {
-        return n * fact(n - 1);
-    }
-    return true;
-}
-
-const memoizationFact = () => {
+const memoizationFact = (f) => {
     let memory = {};
-    return (n) => {
-        if (n in memory) {
+    return function() {
+
+        let result = f.apply(this, arguments);
+
+        if (arguments[0] in memory) {
             console.log("Found in memory");
-            return memory[n];
+            return memory[arguments[0]];
         } else {
             console.log("No matches found in memory. Calculating...");
-            let result = fact(n);
-            memory[n] = result;
-            return memory[n];
+            memory[arguments[0]] = result;
+            return memory[arguments[0]];
         }
     }
 }
 
-const newMemoFact = memoizationFact();
+let factorial = function fact(n) {
+    return (n != 1) ? n * fact(n - 1) : 1;
+}
 
-alert(newMemoFact(+prompt("Введите число факториала")));
+
+factorial = memoizationFact(factorial);
+
+alert(factorial(5))
+alert(factorial(5))
